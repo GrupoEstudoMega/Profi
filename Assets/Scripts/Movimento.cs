@@ -14,7 +14,7 @@ public class Movimento : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		int direcao = animator.GetInteger ("direcao");
 
@@ -39,16 +39,17 @@ public class Movimento : MonoBehaviour {
 				animator.speed = 1;
 
 			if (Input.GetKeyDown (KeyCode.UpArrow))
-			   this.rigidbody2D.AddForce (new Vector2 (0.0f, 220.0f));
+			   this.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0.0f, 220.0f));
 
 			this.animator.SetInteger ("direcao", direcao);
-			this.rigidbody2D.velocity = new Vector2 (1.5f * direcao * moonwalk, this.rigidbody2D.velocity.y);
+			this.GetComponent<Rigidbody2D>().velocity = new Vector2 (1.5f * direcao * moonwalk, this.GetComponent<Rigidbody2D>().velocity.y);
 
 			//this.rigidbody2D.AddForce (new Vector2 (5.0f * direcao * moonwalk, 0.0f));
 		}
 	}
 
 	void OnTriggerStay2D(Collider2D coll) {
+		Debug.Log ("stay");
 		colidindo = true;
 	}
 
