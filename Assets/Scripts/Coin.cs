@@ -19,9 +19,13 @@ public class Coin : MonoBehaviour {
 	void GeraCoins () {
 		if (gameObject.transform.childCount < maxcoins) {
 		    var obj = Instantiate(coin);
-			obj.transform.position = new Vector2(Random.Range(-0.5f,3.2f),0.75f);
+			obj.transform.position = new Vector2(Random.Range(-0.5f,9.2f),0.75f);
 			obj.transform.SetParent(gameObject.transform);
 		}
+
+		//obj.transform.position = new Vector2(Random.Range(4.1f,4.9f),1.75f);
+		//obj.transform.position = new Vector2(Random.Range(5.2f,6.18f),2.75f);
+
 	}
 	
 
